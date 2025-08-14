@@ -1,0 +1,152 @@
+<!-- 標題 -->
+<h1 style="color:#193c47; background-color:#eef9fd; padding:8px;">
+  ${(() => {
+    const titleTranslation = topItem.getField("titleTranslation");
+    if (titleTranslation) {
+      return `(${topItem.getField("date")}) ${topItem.getField("title")} (${titleTranslation})`;
+    } else {
+      return `(${topItem.getField("date")}) ${topItem.getField("title")}`;
+    }
+  })()}
+</h1>
+
+<!-- Meta Data -->
+<table>
+  <!-- 作者 -->
+  <tr>
+    <td style="color:#193c47; background-color:#dbeedd; padding:8px;">
+      <b>作者:</b> ${topItem.getCreators().map((v) => v.firstName + " " + v.lastName).join("; ")}
+    </td>
+  </tr>
+
+  <!-- 期刊 -->
+  <tr>
+    <td style="color:#193c47; background-color:#f3faf4; padding:8px;">
+        <b style="color:#193c47;">期刊: <b style="color:#FF0000">${topItem.getField('publicationTitle')}</b></b><b style="color:#193c47;"> （發表日期: ${topItem.getField("date")}）</b>
+      </td>
+  </tr>
+
+  <!-- 期刊分級 -->
+  <tr>
+    <td style="color:#193c47; background-color:#dbeedd; padding:8px;">
+      <b>期刊分級 : </b>
+      <!-- 引用了zotero style插件的標籤，請提前安裝，否則找不到分區 -->
+      ${(() => {let space = " ㅤㅤ ㅤㅤ"
+              return Array.prototype.map.call(Zotero.ZoteroStyle.data.ztoolkit.ItemTree.globalCache.renderCellHooks.PublicationTags(
+          0,
+          Zotero.ZoteroStyle.data.ztoolkit.ItemTree.fieldHooks.globalCache.getFieldHooks.PublicationTags(
+          "", true, true,
+          topItem, undefined)
+          ).childNodes,
+          e => {
+          e.innerText = space + space + e.innerText + space + space;
+          return e.outerHTML
+          }).join(space)
+          })()
+          }
+    </td>
+  </tr>
+
+  <!-- 本地連接 -->
+  <tr>
+    <td style="color:#193c47; background-color:#f3faf4; padding:8px;">
+      ${(() => {
+        const attachments = Zotero.Items.get(topItem.getAttachments());
+        if (attachments && attachments.length > 0) {
+          return `<b>本地連接 : </b><a href="zotero://open-pdf/0_${attachments[0].key}">${attachments[0].getFilename()}</a>`;
+        } else {
+          return `<b>本地連接 : </b>`;
+        }
+      })()}
+    </td>
+  </tr>
+  
+  <!-- DOI或URL -->
+  <tr>
+    <td style="color:#193c47; background-color:#dbeedd; padding:8px;">
+      ${(() => {
+        const doi = topItem.getField("DOI");
+        if (doi) {
+          return `<b>DOI: </b><a href="https://doi.org/${topItem.getField('DOI')}">${topItem.getField('DOI')}</a>`;
+        } else {
+          return `<b>URL: </b><a href="${topItem.getField('url')}">${topItem.getField('url')}</a>`;
+        }
+      })()}
+    </td>
+  </tr>
+  
+  <!-- 摘要 -->
+  <tr>
+    <td style="color:#193c47; background-color:#f3faf4; padding:8px;">
+      ${(() => {
+        const abstractTranslation = topItem.getField('abstractTranslation');
+        if (abstractTranslation) {
+          return `<b>摘要翻譯: </b><i>${abstractTranslation}</i>`;
+        } else {
+          return `<b>摘要: </b><i>${topItem.getField('abstractNote')}</i>`;
+        }
+      })()}
+    </td>
+  </tr>
+
+  <!-- 筆記日期 -->
+  <tr>
+    <td style="color:#4a90e2; background-color:#dbeedd; padding:8px;">
+      <b>筆記日期 : </b>${new Date().toLocaleString()}
+    </td>
+  </tr>
+
+</table>
+
+<!-- 正文 -->
+<span>
+  <h2 style="color:#fff; background-color:#ff8c00;">📜 研究核心</h2>
+  <hr />
+</span>
+<blockquote style="color:#ffa500; background-color:#fff8e1; border-left: 4px solid #ff8c00; padding: 12px; margin: 10px 0; font-style: italic;">
+💭 <strong>思考提示：</strong> Q: 這篇論文做了什麼，解決了什麼問題，創新點與不足？你為什麼會看這篇論文？
+</blockquote>
+
+<h3 style="color:#ff4500;">⚙️ 內容</h3>
+<p></p>
+<h3 style="color:#ff4500;">📋 這篇論文解決了什麼(what)問題？</h3>
+<p></p>
+<h3 style="color:#ffa500;">🌟 為什麼(why)這個問題很重要？</h3>
+<p></p>
+<h3 style="color:#ffa500;">🧠 論文中作者們是怎樣分析與思考問題(how)？</h3>
+<p></p>
+<h3 style="color:#ffa500;">🧐 所提出的解決方案背後的邏輯與貢獻是什麼(than)？</h3>
+<p></p>
+<h3 style="color:#2894FF;">💡 創新點</h3>
+<p></p>
+<h3 style="color:#2894FF;">🧩 不足</h3>
+<p></p>
+
+<span>
+  <h2 style="color:#fff; background-color:#20b2aa;">🔁 研究內容</h2>
+  <hr />
+</span>
+<p></p>
+<h3 style="color:#40e0d0;">💧 數據</h3>
+<p></p>
+<h3 style="color:#40e0d0;">👩🏻‍💻 方法</h3>
+<p></p>
+<h3 style="color:#40e0d0;">🔬 實驗結果</h3>
+<p></p>
+<h3 style="color:#40e0d0;">📜 結論</h3>
+<p></p>
+
+<span>
+  <h2 style="color:#fff; background-color:#3cb371;">🤔 個人總結</h2>
+  <hr />
+</span>
+<blockquote style="color:#2e8b57; background-color:#f1f8e9; border-left: 4px solid #3cb371; padding: 12px; margin: 10px 0; font-style: italic;">
+💡 <strong>總結提示：</strong> 你對那些內容產生疑問，要如何改進？
+</blockquote>
+<p></p>
+<h3 style="color:#2e8b57;">🙋‍♀️ 重點紀錄</h3>
+<p></p>
+<h3 style="color:#2e8b57;">📌 待解決</h3>
+<p></p>
+<h3 style="color:#2e8b57;">💭 啟發思考</h3>
+<p></p>
