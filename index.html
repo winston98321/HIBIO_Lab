@@ -318,12 +318,12 @@
         </div>
         
         <div class="nav-tabs">
-            <button class="nav-tab active" onclick="showSection('reading')">📚 論文閱讀技巧</button>
+            <button class="nav-tab active" onclick="showSection('phases')">🎯 論文完成階段</button>
+            <button class="nav-tab" onclick="showSection('reading')">📚 論文閱讀技巧</button>
             <button class="nav-tab" onclick="showSection('meeting')">💬 Meeting技巧</button>
-            <button class="nav-tab" onclick="showSection('phases')">🎯 論文完成階段</button>
         </div>
         
-        <div id="reading" class="content-section active">
+        <div id="reading" class="content-section">
             <h2 class="section-title">📚 論文閱讀技巧</h2>
             <p style="text-align: center; font-size: 1.1em; color: #666; margin-bottom: 30px;">
                 提高閱讀效率和理解深度的實用技巧
@@ -479,7 +479,7 @@
             </div>
         </div>
         
-        <div id="phases" class="content-section">
+        <div id="phases" class="content-section active">
             <h2 class="section-title">🎯 論文完成階段</h2>
             <p style="text-align: center; font-size: 1.1em; color: #666; margin-bottom: 30px;">
                 從文獻回顧到正式畢業的完整攻略指南
@@ -574,30 +574,33 @@
     </div>
     
     <script>
-        function showSection(sectionId) {
+        function showSection(sectionId, e) {
             // Hide all sections
             const sections = document.querySelectorAll('.content-section');
             sections.forEach(section => {
                 section.classList.remove('active');
             });
-            
+
             // Remove active class from all tabs
             const tabs = document.querySelectorAll('.nav-tab');
             tabs.forEach(tab => {
                 tab.classList.remove('active');
             });
-            
+
             // Show selected section
             document.getElementById(sectionId).classList.add('active');
-            
-            // Add active class to clicked tab
-            event.target.classList.add('active');
-            
+
+            // Add active class to clicked tab（如果有 e.target 才加）
+            if (e && e.target) {
+                e.target.classList.add('active');
+            }
+
             // Update progress bar for phases section
             if (sectionId === 'phases') {
                 updateProgressBar();
             }
         }
+
         
         function updateProgressBar() {
             let progress = 0;
@@ -624,7 +627,14 @@
                 item.style.transform = 'translateY(0) scale(1)';
             });
         });
-        
+        // 頁面載入後直接顯示 phases
+        document.addEventListener('DOMContentLoaded', function () {
+            // 找到對應的 tab 元素（假設 tab 的 data-section="phases" 或 id 可以辨識）
+            const phasesTab = document.querySelector('.nav-tab[data-section="phases"]') 
+                            || document.querySelector('.nav-tab-phases'); // 自己對應 selector
+            showSection('phases', { target: phasesTab });
+        });
+
         // Add smooth scroll behavior
         document.addEventListener('DOMContentLoaded', () => {
             document.body.style.scrollBehavior = 'smooth';
