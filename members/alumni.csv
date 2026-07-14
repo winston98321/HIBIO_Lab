@@ -1,0 +1,13 @@
+﻿entry_year,name,degree,image,thesis
+107,陳冠宇,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2026/01/404_notfound.png,基於心血管磁振造影之非監督式左心室切割暨功能性診斷指標計算
+107,王能軒,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2026/01/404_notfound.png,於腦電圖上利用深度學習方法進行睡眠呼吸中止症之偵測
+107,鄭長宇,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2026/01/404_notfound.png,基於功能性磁振造影利用大腦功能關聯性分析進行大腦年齡族群之多類別分辨
+107,史豐毓,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2026/01/404_notfound.png,以深度學習方法對於灰階處理之結腸鏡影像進行結腸息肉位置的偵測
+110,陸鵬丞,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2026/01/404_notfound.png,高光譜血管通路造影平台架設及分析
+110,陳冠宇,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2025/09/small_kuan.jpg,多任務深度學習方法於心血管磁振造影之心室分割實現
+111,徐崇勝,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2026/01/404_notfound.png,基於功能性磁振造影利用大腦功能關聯性分析進行神經性紅斑性狼瘡之分辨
+112,張屹琇,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2026/01/404_notfound.png,高光譜影像技術中基於偵測方法與深度學習之血管通路分割與評估的比較
+112,游喻瑄,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2026/01/404_notfound.png,X光影像脊椎椎骨自動分割及基於結合生物力學特徵和放射組學的機器學習方法用於繼發性骨折預測
+113,蘇柏凱,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2025/09/grad_pokaisu.jpg,基於提示引導通用模型用於骨鬆性病患之脊椎影像椎體分割
+114,賴盈祥,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2025/09/xiang.jpg,基於多尺度提示詞引導之增強型SAM應用於心臟磁振造影多類別分割
+114,蔡尚哲,M.S.,https://www.lorsmip.org/hibiolab/wp-content/uploads/2025/09/sun_zhaeg_2.png,基於半監督領域適應之跨場域小番茄葉片高光譜影像病害分類與偵測
