@@ -8,7 +8,7 @@
 
 ## 使用方式
 
-直接用瀏覽器開啟 [index.html](https://hibiolab.github.io/HIBIO_Lab/)) 即可瀏覽，不需要額外安裝或建置流程。
+直接用瀏覽器開啟 [index.html](https://hibiolab.github.io/HIBIO_Lab/) 即可瀏覽，不需要額外安裝或建置流程。
 
 ## 目錄結構
 
